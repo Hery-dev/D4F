@@ -24,6 +24,7 @@ import {
      FlatList,
      ActivityIndicator,
     } from 'react-native';
+import ProfilUser from '../Service/ProfilUser';
 
 export default class User extends Component{
 
@@ -38,9 +39,91 @@ export default class User extends Component{
     }
 
     renderItemComponentListUser(item){
-        //console.log(item.item.type_profil);
         if(item.item.type_profil==2){
             if(item.item.suis_je==1){
+                return (
+                    <View>
+                        <Image source={{
+                            uri: 'https://last-chance-dating.com/public/assets/operateur_image/'+`${item.item.avatar}`
+                        }}
+                        style={{
+                            borderRadius:5,
+                            width:170,
+                            height:230,
+                            marginHorizontal:5
+                        }}
+                        ></Image>
+                        <View style={{
+                            position:'absolute',
+                        }}>
+                            <View style={{
+                                flexDirection:'row'
+                            }}>
+                                <Image source={{
+                                        uri:"https://en-toute-discretion.com/public/assets/new_integration/triangle_femme.png"
+                                    }} style={{
+                                        width:40,
+                                        height:40,
+                                    marginLeft:135
+                                }}></Image>
+                            </View>
+                            <Text style={{
+                                marginTop:65,
+                                color:'white',
+                                fontWeight:'bold',
+                                marginLeft:20
+                            }}>{item.item.nom_user}</Text>
+
+                            <Text style={{
+                                marginTop:15,
+                                color:'white',
+                                marginLeft:20,     
+                            }}>{item.item.ville}</Text>
+
+                            <Text style={{
+                                color:'white',
+                                fontWeight:'bold',
+                                marginLeft:20,
+                            }}>{item.item.pays_inscription}</Text>
+                            <View style={{
+                                flexDirection:'row',
+                                marginTop:15
+                            }}>
+                                <Image source={{
+                                    uri:'https://dating-4-free.com/public/assets/img/Coeurd4f.png'
+                                }} style={{
+                                    marginLeft:15,
+                                    width:25,
+                                    height:20
+                                }}></Image>
+                                <Image source={{
+                                    uri:'https://dating-4-free.com/public/assets/img/Message3.png'
+                                }} style={{
+                                    marginLeft:15,
+                                    width:25,
+                                    height:20
+                                }}></Image>
+                                <Image source={{
+                                    uri:'https://dating-4-free.com/public/assets/img/Fleur.png'
+                                }} style={{
+                                    marginLeft:15,
+                                    width:25,
+                                    height:40
+                                }}></Image>
+                                <Image source={{
+                                    uri:'https://dating-4-free.com/public/assets/img/Kiss.png'
+                                }} style={{
+                                    marginLeft:15,
+                                    width:25,
+                                    height:20
+                                }}></Image>
+                            </View>
+                        </View>
+                    </View>
+                );
+            }
+
+            else if(item.item.suis_je==0){
                 return (
                     <View>
                         <Image source={{
@@ -244,9 +327,26 @@ export default class User extends Component{
                         marginHorizontal:20,
                         backgroundColor:'#294365'
                     }} onPress={()=>{
-                        navigation.navigate("userprofil", {
+                        //console.log(this.state.avatar_session[0]["userid"]);
+                        var res = ProfilUser(this.state.avatar_session[0]["userid"]);
+                        setTimeout(() => {
+                            //console.log(res[0]["information_profil_olona"]);
+                            navigation.navigate("userprofil", {
+                                avatar_olona1:res[0]["avatar_olona1"],
+                                avatar_session:res[0]["avatar_session"],
+                                information_profil_olona:res[0]["information_profil_olona"],
+                                photo_public:res[0]["photo_public"],
+                                photo_tout:res[0]["photo_tout"],
+                                typeadh_coaching:res[0]["typeadh_coaching"],
+                                typeadh_dating:res[0]["typeadh_dating"],
+                            });
+                        }, 2000);
+                        
+                        /*navigation.navigate("userprofil", {
                             avatar_session:this.state.avatar_session,
-                        });
+                            vip:res[0]["vip"],
+                            list_tout_user:res[0]["list_tout_user"],
+                        });*/
                     }}>
                         <Text style={{
                             color:'white',

@@ -31,12 +31,18 @@ export default class UserProfil extends Component{
         super(props);
         this.state={
             avatar_session:this.props.route.params.avatar_session,
+            avatar_olona1:this.props.route.params.avatar_olona1,
+            information_profil_olona:this.props.route.params.information_profil_olona,
+            photo_public:this.props.route.params.photo_public,
+            photo_tout:this.props.route.params.photo_tout,
+            typeadh_coaching:this.props.route.params.typeadh_coaching,
+            typeadh_dating:this.props.route.params.typeadh_dating,
             showmenu:false,
         }
     }
 
     componentDidMount(){
-        console.log(this.state.avatar_session[0]["avatar"]);
+        console.log(this.state.information_profil_olona);
     }
 
     menuComponent(status){
@@ -284,6 +290,148 @@ export default class UserProfil extends Component{
                 </View>
             </View>
             {this.menuComponent(this.state.showmenu)}
+
+            <View style={{
+                marginTop:20,
+                marginHorizontal:20
+            }}>
+                <Text style={{
+                    fontSize:28,
+                }}>Mes abonnements dating</Text>
+                <Text style={{
+                    marginTop:10,
+                    padding:15,
+                    borderWidth:1,
+                    borderRadius:5,
+                    textAlign:'center',
+                    fontSize:20,
+                    backgroundColor:'white'
+                }}>Type d'adhésion :
+                    <Text style={{
+                        fontWeight:'bold'
+                    }}> {this.state.typeadh_dating}</Text>
+                </Text>
+
+            </View>
+
+            <View style={{
+                marginTop:20,
+                marginHorizontal:20
+            }}>
+                <Text style={{
+                    fontSize:26,
+                }}>Mes abonnements coaching</Text>
+                <Text style={{
+                    marginTop:10,
+                    padding:15,
+                    borderWidth:1,
+                    borderRadius:5,
+                    textAlign:'center',
+                    fontSize:20,
+                    backgroundColor:'white'
+                }}>Type d'adhésion :
+                    <Text style={{
+                        fontWeight:'bold'
+                    }}> {this.state.typeadh_coaching}</Text>
+                </Text>
+
+            </View>
+
+            <Text style={{
+                    marginTop:20,
+                    fontSize:26,
+                    marginLeft:20
+            }}>Mon Profil</Text>
+
+            <View style={{
+                marginHorizontal:20,
+                width:Dimensions.get("window").width-40,
+                backgroundColor:'white',
+                borderWidth:1,
+                borderRadius:10,
+                marginBottom:20
+            }}> 
+                <View style={{
+                    alignItems:'center'
+                }}>
+                    <Image source={{uri:'https://dating-4-free.com/public/assets/photo_users/'+this.state.avatar_session[0]["avatar"]}}
+                    style={{
+                        marginTop:10,
+                        marginLeft:10,
+                        width:Dimensions.get("window").width/3,
+                        height:Dimensions.get("window").height/5,
+                    }}>
+
+                </Image>
+                </View>               
+                
+
+                <Text style={{
+                    marginTop:10,
+                    marginLeft:30,
+                    fontWeight:'bold',
+                    fontSize:23
+                }}>
+                    {this.state.avatar_session[0]["username"]}
+                </Text>
+
+                <Text style={{
+                    marginTop:10,
+                    marginLeft:30,
+                    fontSize:16
+                }}>
+                    {this.state.information_profil_olona[0]["ville"]}
+                </Text>
+
+                <Text style={{
+                    marginTop:10,
+                    marginLeft:30,
+                    fontSize:16,
+                    fontWeight:'bold'
+                }}>
+                    {this.state.information_profil_olona[0]["pays_inscription"]}
+                </Text>
+
+                <Text style={{
+                    marginTop:10,
+                    marginLeft:30,
+                    fontSize:16
+                }}>
+                    {this.state.information_profil_olona[0]["age"]} ans
+                </Text>
+
+                <Text style={{
+                    marginTop:10,
+                    marginLeft:30,
+                    fontSize:17,
+                }}>
+                    A propos de moi
+                </Text>
+                <View style={{
+                    backgroundColor:'#93dcf8',
+                    marginHorizontal:30,
+                    marginTop:10,
+                    padding:20,
+                    alignItems:'center'
+                }}>
+                    <Text style={{
+                        color:"#128fbc",
+                        fontSize:16
+                    }}>Dites quelque chose sur vous...</Text>
+                </View>
+                <TouchableOpacity style={{
+                    marginTop:20,
+                    marginLeft:30,
+                    marginRight:Dimensions.get("window").width/4
+                }}>
+                    <Text style={{
+                        borderWidth:1,
+                        padding:10,
+                        fontSize:16
+                    }}>Information personnelles</Text>
+                </TouchableOpacity>
+                
+            </View>
             </ScrollView>
             </View>
         );

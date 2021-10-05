@@ -22,6 +22,7 @@ export default function ConnectUser(user, mdp){
     })
     .then(res=>res.json())
     .then((json) => {
+        console.log(json.data);
         if(json.message=="OK"){
             val[0]["avatar_session"]=json.avatar_session;
             val[0]["vip"]=json.vip;
