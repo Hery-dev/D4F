@@ -29,6 +29,7 @@ import {
     } from 'react-native';
 
 import ConnectUser from '../Service/ConnectUser';
+import { color } from 'react-native-reanimated';
 
 export default class Accueil extends Component{
 
@@ -226,16 +227,14 @@ export default class Accueil extends Component{
                 style={{
                 backgroundColor : 'transparent',                   
             }}>
-                <Image source = {{uri:'https://last-chance-dating.com/public/assets/image_mobile/back2.png'}} style={{
+                <Image source = {{uri:'https://dating-4-free.com/public/assets/image_mobile/back.jpg'}} style={{
                     width : Dimensions.get("window").width,
+                    position:'absolute',
                     height : 1530,
-                    position:'absolute'
                 }}></Image>
 
                 <View style={{
                         flexDirection:'row', 
-                        backgroundColor:'#f8f9fa',
-                        opacity: 0.7,
                         width:Dimensions.get("window").width
                 }}>
                     <View style={{
@@ -273,6 +272,251 @@ export default class Accueil extends Component{
                                              
                     </View>
                 </View>
+
+
+                <View style={{
+                    width:Dimensions.get("window").width,
+                    alignItems:'center',
+                    marginHorizontal:20,
+                }}>
+                        <Text style={{
+                            marginTop:20,
+                            fontSize:35,
+                            color:'white',
+                            fontWeight:'bold'
+                        }}>Inscrivez-vous</Text>
+                        <Text style={{
+                            marginTop:10,
+                            fontSize:35,
+                            color:'white',
+                        }}>C'est</Text>
+
+                        <Image source={{
+                            uri:'https://dating-4-free.com/public/assets/new_integration/gratuit.gif'
+                        }} style={{
+                            width:Dimensions.get("window").width/2,
+                            height:100
+                        }}></Image>
+                    </View>
+                    <View style={{
+                        marginHorizontal:20,
+                        alignItems:'center'
+                    }}>
+                        <Image style={{
+                            width:Dimensions.get("window").width-20,
+                            height:100
+                        }} source={{
+                            uri:'https://last-chance-dating.com/public/assets/integration_new/Rectangle1.png'
+                        }}></Image>
+                        <View style={{
+                            flexDirection:'row',
+                            position:'absolute',
+                        }}>
+                            <View style={{
+                                width:Dimensions.get("window").width/5,
+                                alignItems:'center',
+                                marginTop:30
+                            }}>
+                                <Image source={{
+                                    uri:'https://last-chance-dating.com/public/assets/integration_new/icone1.png'
+                                }} style={{
+                                    width:40,
+                                    height:40
+                                }}></Image>
+                            </View>
+
+                            <View style={{
+                                width:2*Dimensions.get("window").width/3,
+                                marginTop:20,
+                            }}>
+                            <View style={{
+                                flexDirection:'row',
+                                marginLeft:50,
+                            }}>
+                                <Text style={{
+                                    padding:5,
+                                    backgroundColor:'white',
+                                    borderRadius:5,
+                                    fontWeight:'bold'
+
+                                }}>1</Text>
+                                <Text style={{
+                                    padding:5,
+                                    backgroundColor:'white',
+                                    borderRadius:5,
+                                    marginLeft:8,
+                                    fontWeight:'bold'
+                                }}>2</Text>
+                                <Text style={{
+                                    padding:5,
+                                    backgroundColor:'white',
+                                    borderRadius:5,
+                                    marginLeft:8,
+                                    fontWeight:'bold'
+                                }}>9</Text>
+                                <Text style={{
+                                    padding:5,
+                                    backgroundColor:'white',
+                                    borderRadius:5,
+                                    marginLeft:8,
+                                    fontWeight:'bold'
+                                }}>1</Text>
+                                <Text style={{
+                                    padding:5,
+                                    backgroundColor:'white',
+                                    borderRadius:5,
+                                    marginLeft:8,
+                                    fontWeight:'bold'
+                                }}>5</Text>
+                                <Text style={{
+                                    padding:5,
+                                    backgroundColor:'white',
+                                    borderRadius:5,
+                                    marginLeft:8,
+                                    fontWeight:'bold'
+                                }}>6</Text>
+                            </View>
+
+                            <Text style={{
+                                marginTop:15,
+                                color:'white'
+                            }}>Personne déjà inscrit sur Dating-4-free</Text>
+                            </View>
+                            
+                        </View>
+
+                    </View>
+
+                    <View style={{
+                        marginHorizontal:20,
+                        alignItems:'center',
+                        marginTop:10
+                    }}>
+                        <Image style={{
+                            width:Dimensions.get("window").width-20,
+                            height:100
+                        }} source={{
+                            uri:'https://last-chance-dating.com/public/assets/integration_new/Rectangle1.png'
+                        }}></Image>
+                        <View style={{
+                            flexDirection:'row',
+                            position:'absolute',
+                        }}>
+                            <View style={{
+                                width:Dimensions.get("window").width/5,
+                                alignItems:'center',
+                                marginTop:30
+                            }}>
+                                <Image source={{
+                                    uri:'https://last-chance-dating.com/public/assets/integration_new/icone2.png'
+                                }} style={{
+                                    width:40,
+                                    height:45
+                                }}></Image>
+                            </View>
+
+                            <View style={{
+                                width:2*Dimensions.get("window").width/3,
+                                marginTop:10,
+                            }}>
+                            <View style={{
+                                flexDirection:'row',
+                                marginLeft:60,
+                            }}>
+                                <Text style={{
+                                    color:'white',
+                                    fontSize:30
+                                }}>9</Text>
+                                <Text style={{
+                                    color:'white',
+                                    fontSize:30,
+                                }}>1</Text>
+                                <Text style={{
+                                    color:'white',
+                                    fontSize:30,
+                                    marginLeft:5
+                                }}>.</Text>
+                                <Text style={{
+                                    color:'white',
+                                    fontSize:30,
+                                    marginLeft:5,
+                                }}>6</Text>
+                                <Text style={{
+                                    color:'white',
+                                    fontSize:30,
+                                }}>1</Text>
+                                <Text style={{
+                                    color:'white',
+                                    fontSize:30,
+                                }}>5</Text>
+                            </View>
+
+                            <Image style={{
+                                width:Dimensions.get("window").width/2,
+                                height:5,
+                                marginLeft:20
+                            }} source={{
+                                uri:'https://last-chance-dating.com/public/assets/integration_new/line2.png'
+                            }}></Image>
+
+                            <Text style={{
+                                marginTop:6,
+                                color:'white',
+                                textAlign:'center'
+                            }}>Personne connectées sur Dating-4-Free en ce moment</Text>
+                            </View>
+                            
+                        </View>
+
+                    </View>
+                
+                    <View style={{
+                        marginHorizontal:20,
+                        alignItems:'center',
+                        marginTop:10
+                    }}>
+                        <Image style={{
+                            width:Dimensions.get("window").width-20,
+                            height:100
+                        }} source={{
+                            uri:'https://last-chance-dating.com/public/assets/integration_new/Rectangle1.png'
+                        }}></Image>
+                        <View style={{
+                            flexDirection:'row',
+                            position:'absolute',
+                        }}>
+                            <View style={{
+                                width:(Dimensions.get("window").width/2)-10,
+                                alignItems:'center',
+                                marginTop:30,
+                            }}>
+                                <Image source={{
+                                    uri:'https://last-chance-dating.com/public/assets/integration_new/Verifi3.png'
+                                }} style={{
+                                    width:(Dimensions.get("window").width/2)-20,
+                                    height:55
+                                }}></Image>
+                            </View>
+
+                            <View style={{
+                                width:(Dimensions.get("window").width/2)-10,
+                                marginTop:10,
+                                alignItems:'center'
+                            }}>
+                           
+                            <Image style={{
+                                width:Dimensions.get("window").width/5,
+                                height:80,
+                            }} source={{
+                                uri:'https://last-chance-dating.com/public/assets/integration_new/sécurisé.png'
+                            }}></Image>
+
+                            </View>
+                            
+                        </View>
+
+                    </View>
+                
 
             </ScrollView>
             </View>
