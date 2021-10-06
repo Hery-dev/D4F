@@ -27,7 +27,7 @@ import {
 import ProfilUser from '../Service/ProfilUser';
 import Userecherche from '../Service/Userecherche';
 
-export default class User extends Component{
+export default class Votreregion extends Component{
 
     constructor(props){
         super(props);
@@ -35,14 +35,9 @@ export default class User extends Component{
             avatar_session:this.props.route.params.avatar_session,
             vip:this.props.route.params.vip,
             list_tout_user:this.props.route.params.list_tout_user,
-            liste_user_ville:this.props.route.params.liste_user_ville,
             showmenu:false,
             isLoad:false,
         }
-    }
-    
-    componentDidMount(){
-        //console.log(this.state.liste_user_ville);
     }
 
     renderItemComponentListUser(item){
@@ -301,288 +296,6 @@ export default class User extends Component{
         }
     }
 
-    renderItemComponentListUserEnligne(item){
-        
-        if(item.item.type_profil==2){
-            //console.log(item.item.suis_je);
-            if(item.item.suis_je==1){
-                console.log(item.item.suis_je);
-                return (
-                    <View>
-                        <Image source={{
-                            uri: 'https://last-chance-dating.com/public/assets/operateur_image/'+`${item.item.avatar}`
-                        }}
-                        style={{
-                            borderRadius:5,
-                            width:170,
-                            height:230,
-                            marginHorizontal:5
-                        }}
-                        ></Image>
-                        <View style={{
-                            position:'absolute',
-                        }}>
-                            <View style={{
-                                flexDirection:'row'
-                            }}>
-
-                                <View style={{
-                                    height:20,
-                                    width:20,
-                                    borderRadius:10,
-                                    backgroundColor:'#8AC16C',
-                                    marginLeft:10,
-                                    marginTop:10
-                                }}></View>
-                                <Image source={{
-                                        uri:"https://en-toute-discretion.com/public/assets/new_integration/triangle_femme.png"
-                                    }} style={{
-                                        width:40,
-                                        height:40,
-                                    marginLeft:105
-                                }}></Image>
-                            </View>
-                            <Text style={{
-                                marginTop:65,
-                                color:'white',
-                                fontWeight:'bold',
-                                marginLeft:20
-                            }}>{item.item.nom_user}</Text>
-
-                            <Text style={{
-                                marginTop:15,
-                                color:'white',
-                                marginLeft:20,     
-                            }}>{item.item.ville}</Text>
-
-                            <Text style={{
-                                color:'white',
-                                fontWeight:'bold',
-                                marginLeft:20,
-                            }}>{item.item.pays_inscription}</Text>
-                            <View style={{
-                                flexDirection:'row',
-                                marginTop:15
-                            }}>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Coeurd4f.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:20
-                                }}></Image>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Message3.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:20
-                                }}></Image>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Fleur.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:40
-                                }}></Image>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Kiss.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:20
-                                }}></Image>
-                            </View>
-                        </View>
-                    </View>
-                );
-            }
-
-            else if(item.item.suis_je==0){
-                return (
-                    <View>
-                        <Image source={{
-                            uri: 'https://last-chance-dating.com/public/assets/operateur_image/'+`${item.item.avatar}`
-                        }}
-                        style={{
-                            borderRadius:5,
-                            width:170,
-                            height:230,
-                            marginHorizontal:5
-                        }}
-                        ></Image>
-                        <View style={{
-                            position:'absolute',
-                        }}>
-                            <View style={{
-                                flexDirection:'row'
-                            }}>
-
-                                <View style={{
-                                    height:20,
-                                    width:20,
-                                    borderRadius:10,
-                                    backgroundColor:'#8AC16C',
-                                    marginLeft:10,
-                                    marginTop:10
-                                }}></View>
-                                <Image source={{
-                                        uri:"https://en-toute-discretion.com/public/assets/new_integration/triangle_femme.png"
-                                    }} style={{
-                                        width:40,
-                                        height:40,
-                                    marginLeft:105
-                                }}></Image>
-                            </View>
-                            <Text style={{
-                                marginTop:65,
-                                color:'white',
-                                fontWeight:'bold',
-                                marginLeft:20
-                            }}>{item.item.nom_user}</Text>
-
-                            <Text style={{
-                                marginTop:15,
-                                color:'white',
-                                marginLeft:20,     
-                            }}>{item.item.ville}</Text>
-
-                            <Text style={{
-                                color:'white',
-                                fontWeight:'bold',
-                                marginLeft:20,
-                            }}>{item.item.pays_inscription}</Text>
-                            <View style={{
-                                flexDirection:'row',
-                                marginTop:15
-                            }}>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Coeurd4f.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:20
-                                }}></Image>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Message3.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:20
-                                }}></Image>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Fleur.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:40
-                                }}></Image>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Kiss.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:20
-                                }}></Image>
-                            </View>
-                        </View>
-                    </View>
-                );
-            }
-
-            else if(item.item.suis_je==3){
-                return (
-                    <View>
-                        <Image source={{
-                            uri: 'https://last-chance-dating.com/public/assets/operateur_image/'+`${item.item.avatar}`
-                        }}
-                        style={{
-                            borderRadius:5,
-                            width:170,
-                            height:230,
-                            marginHorizontal:5
-                        }}
-                        ></Image>
-                        <View style={{
-                            position:'absolute',
-                        }}>
-                            <View style={{
-                                flexDirection:'row'
-                            }}>
-                                <View style={{
-                                    height:20,
-                                    width:20,
-                                    borderRadius:10,
-                                    backgroundColor:'#8AC16C',
-                                    marginLeft:10,
-                                    marginTop:10
-                                }}></View>
-                                <Image source={{
-                                        uri:"https://en-toute-discretion.com/public/assets/new_integration/triangle_femme.png"
-                                    }} style={{
-                                        width:40,
-                                        height:40,
-                                        marginLeft:105
-                                }}></Image>
-                            </View>
-                            <Text style={{
-                                marginTop:65,
-                                color:'white',
-                                fontWeight:'bold',
-                                marginLeft:20
-                            }}>{item.item.nom_user}</Text>
-
-                            <Text style={{
-                                marginTop:15,
-                                color:'white',
-                                marginLeft:20,     
-                            }}>{item.item.ville}</Text>
-
-                            <Text style={{
-                                color:'white',
-                                fontWeight:'bold',
-                                marginLeft:20,
-                            }}>{item.item.pays_inscription}</Text>
-                            <View style={{
-                                flexDirection:'row',
-                                marginTop:15
-                            }}>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Coeurd4f.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:20
-                                }}></Image>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Message3.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:20
-                                }}></Image>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Fleur.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:40
-                                }}></Image>
-                                <Image source={{
-                                    uri:'https://dating-4-free.com/public/assets/img/Kiss.png'
-                                }} style={{
-                                    marginLeft:15,
-                                    width:25,
-                                    height:20
-                                }}></Image>
-                            </View>
-                        </View>
-                    </View>
-                );
-            }
-        }
-    }
-
     renderItemComponentVip(item){
         return(
             <View>
@@ -704,7 +417,6 @@ export default class User extends Component{
                     }} onPress={()=>{
                         var res = ProfilUser(this.state.avatar_session[0]["userid"]);
                         setTimeout(() => {
-                            console.log(res);
                             this.setState({showmenu:false});
                             navigation.navigate("userprofil", {
                                 avatar_olona1:res[0]["avatar_olona1"],
@@ -1000,31 +712,27 @@ export default class User extends Component{
                         }}>En ligne</Text>
 
                     </View>
-                    <TouchableOpacity onPress={()=>{
-                            console.log("Près de votre région")
-                    }}>
-                        <View style={{
-                            marginTop:20,
-                            alignItems:'center',
-                            height:60
-                        }}>
-                            <Image source={{uri:'https://dating-4-free.com/public/assets/image_mobile/Button_enable.png'}} style={{
-                                position:'absolute',
-                                width:Dimensions.get("window").width-50,
-                                height:60
-                            }}></Image>
-                            <Text style={{
-                                marginTop:18,
-                                color:'#e70083',
-                                fontWeight:'bold'
-                            }}>Près de votre région</Text>
-                        </View>
-                    </TouchableOpacity>
 
                     <View style={{
-                        marginTop:5,
+                        marginTop:20,
                         alignItems:'center',
-                        height:50
+                        height:60
+                    }}>
+                        <Image source={{uri:'https://dating-4-free.com/public/assets/image_mobile/Button_enable.png'}} style={{
+                            position:'absolute',
+                            width:Dimensions.get("window").width-50,
+                            height:60
+                        }}></Image>
+                        <Text style={{
+                            marginTop:18,
+                            color:'#e70083',
+                            fontWeight:'bold'
+                        }}>Près de votre région</Text>
+                    </View>
+
+                    <View style={{
+                        alignItems:'center',
+                        height:60
                     }}>
                         <Image source={{uri:'https://dating-4-free.com/public/assets/image_mobile/Boutton_disable.png'}} style={{
                             position:'absolute',
@@ -1047,20 +755,6 @@ export default class User extends Component{
                             width:Dimensions.get("window").width-70,
                             height:40
                         }}></Image>
-                    </View>
-
-                    <View style={{
-                        marginVertical:20,
-                        marginHorizontal:12
-                    }}>
-                        <FlatList 
-                            horizontal={true}
-                            initialNumToRender={25}            
-                            data={this.state.liste_user_ville}
-                            keyExtractor={({ id }, userid) => userid.toString()}
-                            renderItem={item => 
-                            this.renderItemComponentListUserEnligne(item)}
-                        />
                     </View>
 
                     <View style={{

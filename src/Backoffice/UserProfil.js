@@ -24,6 +24,7 @@ import {
      FlatList,
      ActivityIndicator,
     } from 'react-native';
+import Userecherche from '../Service/Userecherche';
 
 export default class UserProfil extends Component{
 
@@ -38,14 +39,16 @@ export default class UserProfil extends Component{
             typeadh_coaching:this.props.route.params.typeadh_coaching,
             typeadh_dating:this.props.route.params.typeadh_dating,
             showmenu:false,
+            isLoad:false,
         }
     }
 
     componentDidMount(){
-        console.log(this.state.information_profil_olona);
+        //console.log(this.state.information_profil_olona);
     }
 
     menuComponent(status){
+        const { navigation } = this.props;
         if(status==true){
             return (
                 <View style={{
@@ -197,6 +200,10 @@ export default class UserProfil extends Component{
                         marginHorizontal:20,
                         backgroundColor:'#d8d8d8',
                         marginTop:5
+                    }} onPress={()=>{
+                        setTimeout(() => {
+                            navigation.navigate("home");
+                        }, 2000);
                     }}>
                     <Text style={{
                         fontWeight:'bold',
@@ -210,7 +217,14 @@ export default class UserProfil extends Component{
 
         }    
     }
+
+    LoadPage(status){
+        if(status==true){
+            return <ActivityIndicator size="large" color="black" />
+        }
+    }
     render(){
+        const { navigation } = this.props;
         return(
             <View>
                 <ScrollView>
@@ -254,6 +268,21 @@ export default class UserProfil extends Component{
                     alignItems:"center",
                     marginTop:50
                 }}>
+                    <TouchableOpacity onPress={()=>{
+                        this.setState({isLoad:true});
+                        //var res =  Userecherche(this.state.avatar_session[0]["userid"]);
+                        var res = Userecherche(this.state.avatar_session[0]["userid"]);
+                        setTimeout(() => {
+                            //console.log(res);
+                            this.setState({isLoad:false});
+                            navigation.navigate("user", {
+                                avatar_session:res[0]["avatar_session"],
+                                vip:res[0]["vip"],
+                                list_tout_user:res[0]["list_tout_user"],
+                                liste_user_ville:res[0]["liste_user_ville"],
+                            });
+                        }, 3000);
+                    }}>
                     <Image
                         source={{uri:'https://dating-4-free.com/public/assets/img/membre.png'}}
                         style={{
@@ -261,6 +290,7 @@ export default class UserProfil extends Component{
                             height:40
                         }}>
                     </Image>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={{
@@ -289,6 +319,11 @@ export default class UserProfil extends Component{
                    
                 </View>
             </View>
+
+            <View>
+                {this.LoadPage(this.state.isLoad)}
+            </View>
+
             {this.menuComponent(this.state.showmenu)}
 
             <View style={{

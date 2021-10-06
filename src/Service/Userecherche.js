@@ -1,4 +1,4 @@
-export default function ConnectUser(user, mdp){
+export default function Userecherche(session_user_id){
     //console.log("User : ",user );
     //console.log("Mdp : ",mdp );
 
@@ -6,28 +6,26 @@ export default function ConnectUser(user, mdp){
         "avatar_session":[],
         "vip":[],
         "list_tout_user":[],
-        "liste_user_ville":[],
         "message":""
     }];
 
-    fetch('https://dating-4-free.com/api/connexionmobile', {
+    fetch('https://dating-4-free.com/api/userrecherche_api', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
         body: JSON.stringify({
-            nom_user: user,
-            mdp_user: mdp
+            session_user_id:session_user_id
         })
     })
     .then(res=>res.json())
     .then((json) => {
-        //console.log(json);
+        console.log(json);
         if(json.message=="OK"){
             val[0]["avatar_session"]=json.avatar_session;
             val[0]["vip"]=json.vip;
-            val[0]["list_tout_user"]=json.list_tout_user.data;
+            val[0]["list_tout_user"]=json.liste_tout_user;
             val[0]["liste_user_ville"]=json.liste_user_ville;
             val[0]["message"]=json.message;
         }
@@ -39,6 +37,8 @@ export default function ConnectUser(user, mdp){
     .catch((err)=>{
         console.error(err)
     });
+
+    //console.log(val[0]["avatar_session"][0]["userid"]);
 
     return val;
 

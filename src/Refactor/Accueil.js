@@ -163,10 +163,12 @@ export default class Accueil extends Component{
                                             /*console.log(res[0]["avatar_session"]);
                                             console.log(res[0]["vip"]);
                                             console.log(res[0]["list_tout_user"]);*/
+                                            this.setState({modalVisible:false});
                                             navigation.navigate("user", {
                                                 avatar_session:res[0]["avatar_session"],
                                                 vip:res[0]["vip"],
                                                 list_tout_user:res[0]["list_tout_user"],
+                                                liste_user_ville:res[0]["liste_user_ville"],
                                             });
                                         }
                                         else if(res[0]["message"]=="NON"){
